@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import '../assets/styles/App.css'; 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          TodoApp
+          TodoApp v1.0
         </a>
       </header>
     </div>
