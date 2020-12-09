@@ -1,12 +1,12 @@
 import todoService from '../apis/todoService'; 
 
 // Create
-// export const createTodo = todo => async dispatch => {
-//     const createdTodo = todoService.post("/todos", todo); 
+// export const createTodo = todoContent => async dispatch => {
+//     const createdTodo = todoService.post("/todos", todoContent); 
 
 //     dispatch({
 //         type: 'CREATE_TODO',
-//         payload: createTodo 
+//         payload: createdTodo 
 //     })
 // }
 
@@ -43,8 +43,14 @@ import todoService from '../apis/todoService';
 
 // pre-backend testing - to be removed later after backend is set up 
 // Create
-export const createTodo = todo => {
+export const createTodo = todoContent => {
     // console.log("Creating todo"); 
+    const todo = {
+        id: Math.random() * 1000,
+        content: todoContent,
+        checked: false
+    }
+
     return {
         type: 'CREATE_TODO', 
         payload: todo
@@ -60,7 +66,8 @@ export const getTodos = () => (dispatch, getState) => {
 }
 
 // Update
-export const updateTodos = (id, todo) => {
+export const updateTodo = (id, todo) => {
+    // console.log("update todo"); 
     return ({
         type: 'UPDATE_TODO',
         payload: todo

@@ -9,6 +9,7 @@ export const todoReducer = (state = {}, action) => {
         case 'FETCH_TODOS': 
             return {...state, ..._.mapKeys(action.payload, "id")}; 
         case 'UPDATE_TODO':
+            console.log("Action UPDATE_TODO received");
             return {...state, [action.payload.id]: action.payload}
         case 'DELETE_TODO':
             return _.omit(state, action.payload)

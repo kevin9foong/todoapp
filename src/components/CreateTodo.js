@@ -3,20 +3,21 @@ import { connect } from 'react-redux';
 
 import { createTodo } from '../actions';
 
-const foo = {
-    id: 1, 
-    content: 'Hello world!'
-}
-
 class CreateTodo extends React.Component {
+    state = { content: "" }; 
 
     render() {
         return (
             <div>
                 <div className="ui input">
-                    <input type="text" placeholder="Enter todo here..." />
+                    <input 
+                        type="text" 
+                        placeholder="Enter todo here..." 
+                        value={this.state.content} 
+                        onChange={(e) => this.setState({content: e.target.value})}
+                    />
                 </div>
-                <button className="ui primary button" onClick={() => {this.props.createTodo(foo)}}>
+                <button className="ui primary button" onClick={() => {this.props.createTodo(this.state.content)}}>
                     Create Todo
                 </button>
             </div> 

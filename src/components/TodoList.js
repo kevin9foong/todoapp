@@ -2,31 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux'; 
 
 import CreateTodo from './CreateTodo'; 
+import TodoItem from './TodoItem'; 
 
 class TodoList extends React.Component {
     renderTodos = () => this.props.todos.map(
         todo => {
             return (
-                <div className="item" key={todo.id}>
-                    <i className="large middle aligned circle outline" /> 
-                    <div className="content">
-                        {todo.content}
-                    </div>
-                </div>
+                <TodoItem todo={todo} key={todo.id} />
             )
         }
     )
 
     render() {
-        console.log(this.renderTodos()); 
         return (
-            <div>
+            <>
                 <h2>Todo List</h2>
-                <div className="ui celled list">
-                    {this.renderTodos()}
+                <div className="ui left aligned container">
+                    <div className="ui huge list">
+                        {this.renderTodos()}
+                    </div>
                 </div>
                 <CreateTodo />
-            </div>
+            </>
         )
     }
 }
